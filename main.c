@@ -1,39 +1,39 @@
-#include "mlx.h"
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thafranco <thfranco@student.42.rio>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/15 17:29:53 by thafranco         #+#    #+#             */
+/*   Updated: 2024/02/18 21:05:47 by thafranco        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-# define WIN_WIDTH 600
-# define WIN_HEIGHT 300
+#include "fdf.h"
 
-typedef struct s_data{
-	void	*mlx;
-	void	*win;
-}				t_mlx_data;
-
-int	handle_board(int keysym, t_mlx_data *data)
+int	main(int argc, char **argv)
 {
-	if (keysym == 65307)
+	t_mlx	*data;
+	int i;
+	int	j;
+	
+	data = (t_mlx *)malloc(sizeof(t_mlx));
+	read_file(argv[1], data);
+	i = 0;
+	while (i < data->height)
 	{
-		printf("The %d key (ESC) has been pressed\n\n", keysym);
-		sleep(1);
-		mlx_destroy_window(data->mlx, data->win);
-		mlx_destroy_display(data->mlx);
-		free(data->mlx); 
-		exit(1);
+		j = 0;
+		while (j < data->width)
+		{
+			printf("%3d", data->z_matrix[i][j]);
+			j++;
+		}
+		printf("\n");
 	}
-	printf("The %d key has been pressed\n\n", keysym);
-	return (0);
-}
-
-
-int	main(void)
-{
-	t_mlx_data data;
-
-	data.mlx = mlx_init();
-	data.win = mlx_new_window(data.mlx, WIN_WIDTH, WIN_HEIGHT, "mlx 42");
-	mlx_key_hook(data.win, handle_board, &data);
-	mlx_loop(data.mlx);
+	//data->mlx = mlx_init();
+	//data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "mlx 42");
+	//mlx_key_hook(data->win, key_board, &data);
+	//mlx_loop(data->mlx);
 	return (0);
 }

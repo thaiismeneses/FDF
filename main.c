@@ -6,7 +6,7 @@
 /*   By: thafranco <thfranco@student.42.rio>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:29:53 by thafranco         #+#    #+#             */
-/*   Updated: 2024/02/18 21:05:47 by thafranco        ###   ########.fr       */
+/*   Updated: 2024/02/20 19:57:31 by thafranco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 int	main(int argc, char **argv)
 {
+	(void)argc;
 	t_mlx	*data;
 	int i;
 	int	j;
 	
-	data = (t_mlx *)malloc(sizeof(t_mlx));
+	data = (t_mlx*)malloc(sizeof(t_mlx));
 	read_file(argv[1], data);
 	i = 0;
 	while (i < data->height)
@@ -26,10 +27,11 @@ int	main(int argc, char **argv)
 		j = 0;
 		while (j < data->width)
 		{
-			printf("%3d", data->z_matrix[i][j]);
+			printf("%d ", data->z_matrix[i][j]);
 			j++;
 		}
 		printf("\n");
+		i++;
 	}
 	//data->mlx = mlx_init();
 	//data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "mlx 42");

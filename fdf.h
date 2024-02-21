@@ -6,7 +6,7 @@
 /*   By: thafranco <thfranco@student.42.rio>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:31:29 by thafranco         #+#    #+#             */
-/*   Updated: 2024/02/18 20:23:42 by thafranco        ###   ########.fr       */
+/*   Updated: 2024/02/20 11:12:44 by thafranco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FDF_H
 
 # include "mlx.h"
+# include "libft/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -60,7 +61,7 @@ typedef struct s_mlx{
 int	key_board(int keysym, t_mlx *data);
 int	get_height(char *file_name);
 int get_width(char *file_name);
-void	fill_matrix(int *zline, char *data);
+void	fill_matrix(int *z_line, char *data);
 void	read_file(char *file_name, t_mlx *data);
 
 

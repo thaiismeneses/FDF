@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thafranco <thfranco@student.42.rio>        +#+  +:+       +#+         #
+#    By: thfranco <thfranco@student.42.rio>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/02/16 18:02:59 by thafranco         #+#    #+#              #
-#    Updated: 2024/02/20 11:13:25 by thafranco        ###   ########.fr        #
+#    Created: 2024/02/16 18:02:59 by thfranco         #+#    #+#              #
+#    Updated: 2024/02/21 13:43:47 by thfranco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ CC			:= gcc
 
 FLAGS		:= -Wall -Wextra -Werror 
 
-INCLUDE		:= -I libft/ minilibx/ fdf.h
+INCLUDE		:= -I libft/ minilibx-linux/fdf.h
 
-LIBS		:= libft/libft.a minilibx/libmlx.a -L/usr/X11/lib -lmlx -lX11 -lXext -lbsd
+LIBS		:= libft/libft.a minilibx-linux/libmlx.a -L/usr/X11/lib  -lX11 -lXext -lbsd
 
 SRCS        :=			  main.c\
 						  key_settings.c\
@@ -30,29 +30,35 @@ RM		    := rm -rf
 
 AR			:= ar rcs
 
+LEAK = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s
+
+
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 					@echo "Compilation of $(NAME) ..."
-					@make -C libft
-					@make -C minilibx
+					@make -C libft/
+					@make -C minilibx-linux/
 					$(CC) $(FLAGS) $(SRCS) $(LIBS) -o $(NAME)
 					@echo "$(NAME) created✔️"
 
 clean:
 					@ echo "Deleting $(NAME) objs ✔️"
-					@make clean -C libft
+					@make clean -C libft/
 					@$(RM) $(OBJS)
 
 fclean: clean
 					@ echo "Deleting $(NAME) ✔️"
 					@ make fclean -C libft/
-					@ make clean -C minilibx/
+					@ make clean -C minilibx-linux/
 					@ $(RM) $(NAME)			
 					@ $(RM) $(LIBFT)
 
 
 re:			fclean all 
 
-.PHONY:				all clean fclean re
+leak:
+				$(LEAK) ./fdf 42.fdf
+
+.PHONY:				all clean fclean re leak

@@ -6,7 +6,7 @@
 /*   By: thafranco <thfranco@student.42.rio>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 17:29:53 by thafranco         #+#    #+#             */
-/*   Updated: 2024/02/20 19:57:31 by thafranco        ###   ########.fr       */
+/*   Updated: 2024/02/21 17:52:25 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 		j = 0;
 		while (j < data->width)
 		{
-			printf("%d ", data->z_matrix[i][j]);
+			printf("%3d ", data->z_matrix[i][j]);
 			j++;
 		}
 		printf("\n");

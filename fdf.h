@@ -6,14 +6,14 @@
 /*   By: thafranco <thfranco@student.42.rio>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:31:29 by thafranco         #+#    #+#             */
-/*   Updated: 2024/02/20 11:12:44 by thafranco        ###   ########.fr       */
+/*   Updated: 2024/02/21 13:31:29 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "mlx.h"
+# include "minilibx-linux/mlx.h"
 # include "libft/libft.h"
 # include <stdio.h>
 # include <stdlib.h>

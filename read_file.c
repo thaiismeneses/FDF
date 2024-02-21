@@ -6,7 +6,7 @@
 /*   By: thafranco <thfranco@student.42.rio>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:21:52 by thafranco         #+#    #+#             */
-/*   Updated: 2024/02/20 21:35:29 by thafranco        ###   ########.fr       */
+/*   Updated: 2024/02/21 17:52:00 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	get_height(char *file_name)
 
 	fd = open(file_name, O_RDONLY, 0);
 	height = 0;
-	while ((line = get_next_line(fd)) != NULL)
+	while ((line = get_next_line(fd)))
 	{
 		height++;
 		free(line);
@@ -39,7 +39,7 @@ int get_width(char *file_name)
 	width = 0;
 	line = get_next_line(fd);
 	width = ft_count_words(line, ' ');	
-	free(line);
+	//free(line);
 	close(fd);
 	return(width);
 }
@@ -54,10 +54,10 @@ void	fill_matrix(int *z_line, char *line)
 	while (nbr[i])
 	{
 		z_line[i] = ft_atoi(nbr[i]);
-		free(nbr[i]);
+//		free(nbr[i]);
 		i++;
 	}
-	free(nbr);
+//	free(nbr);
 }
 
 void	read_file(char *file_name, t_mlx *data)
@@ -76,11 +76,15 @@ void	read_file(char *file_name, t_mlx *data)
 		return ;
 	fd =  open(file_name, O_RDONLY, 0);
 	i = 0;
-	while ((line = get_next_line(fd)) && i <= data->height)
+	line = get_next_line(fd);
+	while (line && i <= data->height)
 	{
 		fill_matrix(data->z_matrix[i], line);
-		free(line);
+	//	free(line);
 		i++;
+		line = get_next_line(fd);
+		//if (i > data->height)
+		//	break;
 	}
 	close(fd);
 	data->z_matrix[i] = NULL;

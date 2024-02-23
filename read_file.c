@@ -6,7 +6,7 @@
 /*   By: thafranco <thfranco@student.42.rio>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:21:52 by thafranco         #+#    #+#             */
-/*   Updated: 2024/02/21 17:52:00 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/02/22 21:27:02 by thafranco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,10 @@ void	fill_matrix(int *z_line, char *line)
 	while (nbr[i])
 	{
 		z_line[i] = ft_atoi(nbr[i]);
-//		free(nbr[i]);
+		free(nbr[i]);
 		i++;
 	}
-//	free(nbr);
+	(nbr);
 }
 
 void	read_file(char *file_name, t_mlx *data)
@@ -80,7 +80,7 @@ void	read_file(char *file_name, t_mlx *data)
 	while (line && i <= data->height)
 	{
 		fill_matrix(data->z_matrix[i], line);
-	//	free(line);
+//		free(line);
 		i++;
 		line = get_next_line(fd);
 		//if (i > data->height)

@@ -6,7 +6,7 @@
 /*   By: thafranco <thfranco@student.42.rio>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:31:29 by thafranco         #+#    #+#             */
-/*   Updated: 2024/02/21 13:31:29 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/02/22 21:27:15 by thafranco        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,5 @@ int	get_height(char *file_name);
 int get_width(char *file_name);
 void	fill_matrix(int *z_line, char *data);
 void	read_file(char *file_name, t_mlx *data);
-
 
 # endif 

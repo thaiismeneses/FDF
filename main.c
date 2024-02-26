@@ -3,39 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thafranco <thfranco@student.42.rio>        +#+  +:+       +#+        */
+/*   By: thfranco <thfranco@student.42.rio>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 17:29:53 by thafranco         #+#    #+#             */
-/*   Updated: 2024/02/21 17:52:25 by thfranco         ###   ########.fr       */
+/*   Created: 2024/02/15 17:29:53 by thfranco         #+#    #+#             */
+/*   Updated: 2024/02/25 19:44:01 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include <stdio.h>
 
 int	main(int argc, char **argv)
 {
 	(void)argc;
 	t_mlx	*data;
-	int i;
-	int	j;
 	
 	data = (t_mlx*)malloc(sizeof(t_mlx));
 	read_file(argv[1], data);
-	i = 0;
-	while (i < data->height)
-	{
-		j = 0;
-		while (j < data->width)
-		{
-			printf("%3d ", data->z_matrix[i][j]);
-			j++;
-		}
-		printf("\n");
-		i++;
-	}
-	//data->mlx = mlx_init();
-	//data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "mlx 42");
-	//mlx_key_hook(data->win, key_board, &data);
-	//mlx_loop(data->mlx);
+	data->mlx = mlx_init();
+	data->win = mlx_new_window(data->mlx, WIN_WIDTH, WIN_HEIGHT, "FDF");
+	data->zoom = 20;
+	//algorithm_brensenham(10, 10, 600, 300, data);
+	draw(data);
+	mlx_key_hook(data->win, key_board, &data);
+	mlx_loop(data->mlx);	
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: thafranco <thfranco@student.42.rio>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:31:29 by thafranco         #+#    #+#             */
-/*   Updated: 2024/02/22 21:27:15 by thafranco        ###   ########.fr       */
+/*   Updated: 2024/02/25 20:45:30 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,14 @@
 # include <unistd.h>
 # include <fcntl.h>
 
-# define WIN_WIDTH 600
-# define WIN_HEIGHT 500
+# define WIN_WIDTH 1080
+# define WIN_HEIGHT 1920
 
 typedef struct s_mlx{
 	int	**z_matrix;
 	int	width;
 	int	height;
+	int zoom;
 
 	void	*mlx;
 	void	*win;
@@ -63,5 +64,6 @@ int	get_height(char *file_name);
 int get_width(char *file_name);
 void	fill_matrix(int *z_line, char *data);
 void	read_file(char *file_name, t_mlx *data);
-
+void	algorithm_brensenham(int x, int y, int x2, int y2, t_mlx *data);
+void	draw(t_mlx *data);
 # endif 

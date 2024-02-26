@@ -1,5 +1,19 @@
 #include "fdf.h"
 
+int	arrow_control(int key, t_mlx *data)
+{
+	if (key == K_UP)
+		data->shift_y -= 10;
+	if (key == K_DOWN)
+		data->shift_y += 10;
+	if (key == K_LEFT)
+		data->shift_x -= 10;
+	if (key == K_RIGHT)
+		data->shift_x += 10;
+	mlx_clear_window(data->mlx, data->win);
+	draw(data);
+	return (0);
+}
 
 int	key_board(int keysym, t_mlx *data)
 {

@@ -6,59 +6,62 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 18:29:16 by thfranco          #+#    #+#             */
-/*   Updated: 2024/02/25 21:05:04 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/02/26 18:35:00 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-int max(int a, int b)
+
+/*int paint(int z)
 {
-	if (a > b)
-		return(a);
-	return (b);
+	if (z > 0)
+		return (0xe80c0c);
+	return (0xffffff);
+}*/
+
+void	isometric(float *x, float *y, int z)
+{
+	*x = (*x - *y) * cos(0.8);
+	*y = (*x + *y) * sin(0.8) - z;
 }
 
-int mod(int a)
+void	algorithm_brensenham(float x, float y, float x2, float y2, t_mlx *data)
 {
-	if (a > 0)
-		return (-a);
-	return (a);
-}
+	int steps;
+	float x_increment;
+	float y_increment;
+	int z;
+	int z2;
 
-float	mod(flaot i)
-{
-	if (i < 0)
-		return (-i);
-	return (i);
-}
-void	algorithm_brensenham(int x, int y, int x2, int y2, t_mlx *data)
-{
-	int dx;
-	int dy;
-	int p;
-	
+	z = data->z_matrix[(int)y][(int)x];
+	z2 = data->z_matrix[(int)y2][(int)x2];
+	//---------Zoom---------
 	x *= data->zoom;
 	y *= data->zoom;
 	x2 *= data->zoom;
 	y2 *= data->zoom;
-	
-	dx = x2 - x;
-	dy = y2 - y;
-	p = 2*dx - dy;
-	
-	
-	while (x <= x2)
+	//-------color-----
+	data->color = (z) ? 0xe80c0c : 0xffffff;
+	//------3D-----------
+	isometric(&x, &y, z);
+	isometric(&x2, &y2, z2);
+	//------shift----------
+	x += data->shift_x;
+	y += data->shift_y;
+	x2 += data->shift_x;
+	y2 += data->shift_y;
+
+	x_increment = x2 - x;
+	y_increment = y2 - y;
+	steps = fmax(fabs(x_increment), fabs(y_increment));
+	x_increment /= steps;
+	y_increment /= steps;
+
+	while ((int)(x - x2) || (int)(y - y2))
 	{
-			mlx_pixel_put(data->mlx, data->win, x, y, 0xffffff);
-			//put_pixel(x, y);
-			x++;
-			if (p < 0)
-				p = p + 2*dy;
-			else
-			{
-				p = p + 2*dy - dx;
-				y++;
-			}
+			mlx_pixel_put(data->mlx, data->win, x, y, data->color);
+			x += x_increment;
+			y += y_increment;
 	}
 }
 
@@ -73,8 +76,10 @@ void	draw(t_mlx *data)
 		x = 0;
 		while (x < data->width)
 		{
-			algorithm_brensenham(x, y, x + 1, y, data);
-			algorithm_brensenham(x, y, x, y + 1, data);
+			if (x < data->width - 1)
+				algorithm_brensenham(x, y, x + 1, y, data);
+			if (y < data->height - 1)
+				algorithm_brensenham(x, y, x, y + 1, data);
 			x++;
 		}
 		y++;

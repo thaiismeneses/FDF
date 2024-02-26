@@ -6,7 +6,7 @@
 #    By: thfranco <thfranco@student.42.rio>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/16 18:02:59 by thfranco         #+#    #+#              #
-#    Updated: 2024/02/25 19:30:53 by thfranco         ###   ########.fr        #
+#    Updated: 2024/02/26 17:09:34 by thfranco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ FLAGS		:= -Wall -Wextra -Werror
 
 INCLUDE		:= -I libft/ minilibx-linux/fdf.h
 
-LIBS		:= libft/libft.a minilibx-linux/libmlx.a -L/usr/X11/lib  -lX11 -lXext -lbsd
+LIBS		:= libft/libft.a minilibx-linux/libmlx.a -L/usr/X11/lib  -lX11 -lXext -lbsd -lm
 
 SRCS        :=			  main.c\
 						  key_settings.c\

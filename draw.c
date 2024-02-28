@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/25 18:29:16 by thfranco          #+#    #+#             */
-/*   Updated: 2024/02/26 18:35:00 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/02/28 19:49:41 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,21 +30,20 @@ void	algorithm_brensenham(float x, float y, float x2, float y2, t_mlx *data)
 	int steps;
 	float x_increment;
 	float y_increment;
-	int z;
-	int z2;
 
-	z = data->z_matrix[(int)y][(int)x];
-	z2 = data->z_matrix[(int)y2][(int)x2];
+	steps = 0;
+	data->z = data->z_matrix[(int)y][(int)x];
+	data->z2 = data->z_matrix[(int)y2][(int)x2];
 	//---------Zoom---------
 	x *= data->zoom;
 	y *= data->zoom;
 	x2 *= data->zoom;
 	y2 *= data->zoom;
-	//-------color-----
-	data->color = (z) ? 0xe80c0c : 0xffffff;
+	//-------color-----r
+	data->color = (data->z) ? 0xe80c0c : 0xffffff;
 	//------3D-----------
-	isometric(&x, &y, z);
-	isometric(&x2, &y2, z2);
+	isometric(&x, &y, data->z);
+	isometric(&x2, &y2, data->z2);
 	//------shift----------
 	x += data->shift_x;
 	y += data->shift_y;

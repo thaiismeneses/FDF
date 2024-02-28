@@ -6,7 +6,7 @@
 /*   By: thafranco <thfranco@student.42.rio>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:31:29 by thafranco         #+#    #+#             */
-/*   Updated: 2024/02/26 20:07:52 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/02/28 19:58:08 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <fcntl.h>
 # include <math.h>
 
-# define WIN_WIDTH 1080
-# define WIN_HEIGHT 1920
+# define WIN_WIDTH 1920
+# define WIN_HEIGHT 1080
 
 typedef struct s_mlx
 {
@@ -33,6 +33,8 @@ typedef struct s_mlx
 	int		color;
 	int		shift_x;
 	int		shift_y;
+	int		z;
+	int		z2;
 	void	*mlx;
 	void	*win;
 }			t_mlx;
@@ -59,4 +61,5 @@ void	algorithm_brensenham(float x, float y, float x2, float y2, t_mlx *data);
 void	draw(t_mlx *data);
 int		paint(int z);
 void	isometric(float *x, float *y, int z);
+void	defaults(t_mlx *data);
 #endif

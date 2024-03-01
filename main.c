@@ -16,23 +16,22 @@
 int	main(int argc, char **argv)
 {
 	(void)argc;
-	t_mlx	*data;
+	t_mlx	data;
 	
-	data = (t_mlx *)malloc(sizeof(t_mlx));
-	defaults(data);
+	defaults(&data);
 	read_file(argv[1], data);
 
 	int i = 0;
 	int j;
-	printf("%d\n", data->height);
-	printf("%d\n", data->width);
+	printf("%d\n", data.height);
+	printf("%d\n", data.width);
 
-	while (i < data->height)
+	while (i < data.height)
 	{
 		j = 0;
-		while (j < data->width)
+		while (j < data.width)
 		{
-			printf("%d", data->z_matrix[i][j]);
+			printf("%3d", data.z_matrix[i][j]);
 			j++;
 		}
 		printf("\n");
@@ -43,5 +42,12 @@ int	main(int argc, char **argv)
 	draw(data);
 	mlx_key_hook(data->win, key_board, &data);
 	m*lx_loop(data->mlx);*/
+	i = 0;
+	while (i <= data.height)
+	{
+		free(data.z_matrix[i]);
+		i++;
+	}
+	free(data.z_matrix);
 	return (0);
 }

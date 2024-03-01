@@ -45,7 +45,7 @@ int		key_board(int keycode, t_mlx *data);
 int		get_height(char *file_name);
 int		get_width(char *file_name);
 void	fill_matrix(int *z_line, char *data);
-void	read_file(char *file_name, t_mlx *data);
+void	read_file(char *file_name, t_mlx data);
 //void	algorithm_brensenham(float x, float y, float x2, float y2, t_mlx *data);
 //void	draw(t_mlx *data);
 //int		paint(int z);

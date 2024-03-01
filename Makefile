@@ -21,11 +21,11 @@ INCLUDE		:= -I libft/ minilibx-linux/fdf.h
 LIBS		:= libft/libft.a minilibx-linux/libmlx.a -L/usr/X11/lib  -lX11 -lXext -lbsd -lm
 
 SRCS        :=			main.c\
-				key_settings.c\
 				read_file.c\
 				config.c\
 				#draw.c\
-				
+				#key_settings.c\
+
 
                           
 OBJS        := $(SRCS:.c=.o)

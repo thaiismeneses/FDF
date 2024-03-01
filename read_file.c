@@ -67,26 +67,26 @@ void	fill_matrix(int *z_line, char *line)
 	free(nbr);
 }
 
-void	read_file(char *file, t_mlx *data)
+void	read_file(char *file, t_mlx data)
 {
 	int		fd;
 	int		i;
 	char	*line;
 
-	data->height = get_height(file);
-	data->width = get_width(file);
-	data->z_matrix = (int **)malloc(sizeof(int *) * (data->height + 1));
+	data.height = get_height(file);
+	data.width = get_width(file);
+	data.z_matrix = (int **)malloc(sizeof(int *) * (data.height + 1));
 	i = 0;
-	while (i <= data-> height)
-		data->z_matrix[i++] = (int *)malloc(sizeof(int) * (data->width + 1));
-	if (!data->z_matrix[i] || !data->z_matrix)
+	while (i < data.height)
+		data.z_matrix[i++] = (int *)malloc(sizeof(int) * (data.width + 1));
+	if (!data.z_matrix[i] || !data.z_matrix)
 		return ;
 	fd = open(file, O_RDONLY, 0);
 	i = 0;
 	line = get_next_line(fd);
 	while (line)
 	{
-		fill_matrix(data->z_matrix[i], line);
+		fill_matrix(data.z_matrix[i], line);
 		free(line);
 		line = get_next_line(fd);
 		i++;

@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   key_settings.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/01 18:12:09 by thfranco          #+#    #+#             */
+/*   Updated: 2024/03/01 18:24:14 by thfranco         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fdf.h"
 
-/*int	arrow_control(int keycode, t_mlx *data)
+int	arrow_control(int keycode, t_mlx *data)
 {
 	if (keycode == XK_Up)
 		data->shift_y -= 10;
@@ -13,14 +25,14 @@
 	mlx_clear_window(data->mlx, data->win);
 	draw(data);
 	return (0);
-}*/
+}
 
 
 int	key_board(int keycode, t_mlx *data)
 {
-/*	if (keycode == XK_Up || keycode  == XK_Down || 
+	if (keycode == XK_Up || keycode  == XK_Down || 
 			keycode == XK_Left || keycode == XK_Right)
-		arrow_control(keycode, data);*/
+		arrow_control(keycode, data);
 	if (keycode == XK_Escape)
 	{
 		printf("The %d key (ESC) has been pressed\n\n", keycode);

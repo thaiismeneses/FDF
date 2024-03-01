@@ -6,7 +6,7 @@
 /*   By: thafranco <thfranco@student.42.rio>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 18:21:52 by thafranco         #+#    #+#             */
-/*   Updated: 2024/02/28 12:54:59 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/02/29 20:32:30 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	read_file(char *file, t_mlx *data)
 	i = 0;
 	while (i <= data-> height)
 		data->z_matrix[i++] = (int *)malloc(sizeof(int) * (data->width + 1));
-	if (!data->z_matrix | !data->z_matrix[i])
+	if (!data->z_matrix[i] || !data->z_matrix)
 		return ;
 	fd = open(file, O_RDONLY, 0);
 	i = 0;
@@ -92,5 +92,4 @@ void	read_file(char *file, t_mlx *data)
 		i++;
 	}
 	close(fd);
-	data->z_matrix[i] = NULL;
 }

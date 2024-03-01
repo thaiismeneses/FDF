@@ -6,7 +6,7 @@
 #    By: thfranco <thfranco@student.42.rio>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/16 18:02:59 by thfranco         #+#    #+#              #
-#    Updated: 2024/02/28 17:54:42 by thfranco         ###   ########.fr        #
+#    Updated: 2024/02/29 20:49:08 by thfranco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,9 @@ LIBS		:= libft/libft.a minilibx-linux/libmlx.a -L/usr/X11/lib  -lX11 -lXext -lbs
 SRCS        :=			main.c\
 				key_settings.c\
 				read_file.c\
-				draw.c\
 				config.c\
+				#draw.c\
+				
 
                           
 OBJS        := $(SRCS:.c=.o)

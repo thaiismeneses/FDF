@@ -6,7 +6,7 @@
 /*   By: thafranco <thfranco@student.42.rio>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 16:31:29 by thafranco         #+#    #+#             */
-/*   Updated: 2024/02/28 19:58:08 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/02/29 20:49:24 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <math.h>
+# include <X11/keysym.h>
 
-# define WIN_WIDTH 1920
-# define WIN_HEIGHT 1080
+# define WIN_WIDTH 650
+# define WIN_HEIGHT 600
 
 typedef struct s_mlx
 {
@@ -39,27 +40,15 @@ typedef struct s_mlx
 	void	*win;
 }			t_mlx;
 
-# define K_UP 0xff52
-# define K_DOWN 0xff54
-# define K_LEFT 0xff51
-# define K_RIGHT 0xff53
-# define K_Q 0x0071
-# define K_E 0x0065
-# define K_W 0x0077
-# define K_S 0x0073
-# define K_A 0x0061
-# define K_D 0x0064
-# define K_ESC 0xff1b
-
-int		key_board(int keysym, t_mlx *data);
-int		arrow_control(int key, t_mlx *data);
+int		key_board(int keycode, t_mlx *data);
+//int		arrow_control(int keycode, t_mlx *data);
 int		get_height(char *file_name);
 int		get_width(char *file_name);
 void	fill_matrix(int *z_line, char *data);
 void	read_file(char *file_name, t_mlx *data);
-void	algorithm_brensenham(float x, float y, float x2, float y2, t_mlx *data);
-void	draw(t_mlx *data);
-int		paint(int z);
-void	isometric(float *x, float *y, int z);
+//void	algorithm_brensenham(float x, float y, float x2, float y2, t_mlx *data);
+//void	draw(t_mlx *data);
+//int		paint(int z);
+//void	isometric(float *x, float *y, int z);
 void	defaults(t_mlx *data);
 #endif

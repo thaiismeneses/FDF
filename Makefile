@@ -6,7 +6,7 @@
 #    By: thfranco <thfranco@student.42.rio>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/16 18:02:59 by thfranco         #+#    #+#              #
-#    Updated: 2024/03/01 18:07:01 by thfranco         ###   ########.fr        #
+#    Updated: 2024/03/02 17:44:38 by thfranco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME        := fdf
 
 CC			:= gcc
 
-FLAGS		:= -Wall -Wextra -Werror 
+FLAGS		:= -Wall -Wextra -Werror -g -fsanitize=address
 
 INCLUDE		:= -I libft/ minilibx-linux/fdf.h
 
@@ -22,11 +22,7 @@ LIBS		:= libft/libft.a minilibx-linux/libmlx.a -L/usr/X11/lib  -lX11 -lXext -lbs
 
 SRCS        :=			main.c\
 				read_file.c\
-				config.c\
-				draw.c\
-				key_settings.c\
-
-
+			
                           
 OBJS        := $(SRCS:.c=.o)
 

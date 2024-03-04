@@ -6,23 +6,30 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:02:47 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/02 17:21:54 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/03 21:36:34 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+#include <stdio.h>
 
-void	free_map(t_mlx *data)
+void	free_map(t_map *map)
 {
 	int	i;
 
 	i = 0;
-	while (i < data->map->height)
+	if (map->matrix != NULL)
 	{
-		free(data->map->matrix[i]);
-		i++;
+		while (i < map->height)
+		{
+			free(map->matrix[i]);
+			i++;
+		}
+		free(map->matrix);
 	}
-	free(data->map->matrix);
+	map->matrix = NULL;
+	map->height = 0;
+	map->width = 0;
 }
 
 void	init_mlx(t_mlx *data)
@@ -33,11 +40,13 @@ void	init_mlx(t_mlx *data)
 
 int	kill_fdf(t_mlx *data)
 {
-	free_map(data);
+	free_map(data->map);
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	mlx_destroy_display(data->mlx_ptr);
 	free(data->mlx_ptr);
-	exit(0);
+	data->mlx_ptr = NULL;
+	data->win_ptr = NULL;
+	exit (0);
 }
  
 int	key_board(int keycode, t_mlx *data)
@@ -50,14 +59,14 @@ int	key_board(int keycode, t_mlx *data)
 int	main(int argc, char **argv)
 {
 	t_mlx	data;
-	(void)argv;
+	t_map	map;
 
 	if (argc != 2)
 		return (-1);
-	
 	init_mlx(&data);
-	read_file(argv[1], &data);
+	read_file(argv[1], &map);
+	data.map = &map;
 	mlx_key_hook(data.win_ptr, key_board, &data);
 	mlx_loop(data.mlx_ptr);
-//	free_map(data);
+	return (0);
 }

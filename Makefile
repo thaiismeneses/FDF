@@ -6,7 +6,7 @@
 #    By: thfranco <thfranco@student.42.rio>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/16 18:02:59 by thfranco         #+#    #+#              #
-#    Updated: 2024/03/02 17:44:38 by thfranco         ###   ########.fr        #
+#    Updated: 2024/03/03 21:24:41 by thfranco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME        := fdf
 
 CC			:= gcc
 
-FLAGS		:= -Wall -Wextra -Werror -g -fsanitize=address
+FLAGS		:= -Wall -Wextra -Werror -g 
+#-fsanitize=address
 
 INCLUDE		:= -I libft/ minilibx-linux/fdf.h
 

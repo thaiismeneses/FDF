@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:02:15 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/02 17:44:51 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/03 21:24:32 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ int	kill_fdf(t_mlx *data);
 //file.fdf
 int	get_height(char *file);
 int 	get_width(char *file);
-void	malloc_matrix(t_mlx *data);
+void	malloc_matrix(t_map *map);
 void	fill_matrix(int *z_line, char *line);
-void	read_file(char *file, t_mlx *data);
-void	free_map(t_mlx *data);
+void	read_file(char *file, t_map *map);
+void	free_map(t_map *map);
 // init variable
 //void	init(t_map *map);
 #endif

@@ -6,11 +6,12 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 16:00:10 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/02 17:47:54 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/03 20:56:35 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+# include "fdf.h"
+# include <stdio.h>
 
 int	get_height(char *file)
 {
@@ -57,14 +58,15 @@ int	get_width(char *file)
 	close(fd);
 	return (width);
 }
-void	malloc_matrix(t_mlx *data)
+
+void	malloc_matrix(t_map *map)
 {
 	int	i;
 
 	i = 0;
-	data->map->matrix = (int **)malloc(sizeof(int *) * (data->map->height));
-	while (i < data->map->height)
-		data->map->matrix[i++] = (int *)malloc(sizeof(int) * (data->map->width + 1)); 
+	map->matrix = (int **)malloc(sizeof(int *) * (map->height));
+	while (i < map->height)
+		map->matrix[i++] = (int *)malloc(sizeof(int) * (map->width + 1)); 
 }
 
 void	fill_matrix(int *z_line, char *line)
@@ -83,7 +85,7 @@ void	fill_matrix(int *z_line, char *line)
 	free(nbr);
 }
 
-void	read_file(char *file, t_mlx *data)
+void	read_file(char *file, t_map *map)
 {
 	int		fd;
 	int		i;
@@ -91,13 +93,13 @@ void	read_file(char *file, t_mlx *data)
 	
 	fd = open(file, O_RDONLY, 0);
 	line = get_next_line(fd);
-	data->map->height = get_height(file);
-	data->map->width = get_width(file);
-	malloc_matrix(data);
+	map->height = get_height(file);
+	map->width = get_width(file);
+	malloc_matrix(map);
 	i = 0;
 	while (line)
 	{
-		fill_matrix(data->map->matrix[i++], line);
+		fill_matrix(map->matrix[i++], line);
 		free(line);
 		line = get_next_line(fd);
 	}

@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:02:47 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/03 21:36:34 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/04 14:09:14 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ void	free_map(t_map *map)
 		}
 		free(map->matrix);
 	}
-	map->matrix = NULL;
-	map->height = 0;
-	map->width = 0;
+	//init_map();
 }
 
 void	init_mlx(t_mlx *data)
@@ -63,9 +61,11 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (-1);
-	init_mlx(&data);
-	read_file(argv[1], &map);
 	data.map = &map;
+	init_mlx(&data);
+	init_map(&map);
+	read_file(argv[1], &map);
+	draw(&map, &data);
 	mlx_key_hook(data.win_ptr, key_board, &data);
 	mlx_loop(data.mlx_ptr);
 	return (0);

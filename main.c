@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:02:47 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/04 21:55:41 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/05 15:36:49 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	kill_fdf(t_mlx *data)
  
 int	key_board(int keycode, t_mlx *data)
 {
-	printf("The %d key has been pressed\n\n", keycode);
+//	printf("The %d key has been pressed\n\n", keycode);
 	zoom(keycode, data);
 	if (keycode == XK_Escape)
 		kill_fdf(data);

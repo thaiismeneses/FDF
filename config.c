@@ -6,25 +6,28 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 17:22:33 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/05 12:17:39 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/05 16:44:41 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h" 
-
+#include <stdio.h>
 void	init_map(t_map *map)
 {
 	map->width = 0;
 	map->height = 0;
-	map->matrix = NULL;
 	map->z = 0;
 	map->z2 = 0;
 	map->zoom = 15;
+	map->color = 0xffffff;
+	map->matrix = NULL;
 }
 
 void	config_map(t_point *point, float *x2, float *y2, t_mlx *data)
 {
 	config_zoom(point, x2, y2, data);
+	isometric(&point->x, &point->y, data->map->z);
+	isometric(x2, y2, data->map->z2);
 }
 
 void	config_zoom(t_point *point, float *x2, float *y2, t_mlx *data)

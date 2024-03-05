@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: thfranco <thfranco@student.42.rio>        +#+  +:+       +#+         #
+#    By: thfranco <thfranco@student.42.rio>        +#+  +:+       +#+          #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/02/16 18:02:59 by thfranco         #+#    #+#              #
-#    Updated: 2024/03/04 14:00:13 by thfranco         ###   ########.fr        #
+#    Created: 2024/02/16 18:02:59 by thfranco         #+#    #+#               #
+#    Updated: 2024/03/05 15:40:14 by thfranco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 16:00:10 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/04 11:05:00 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/05 15:55:34 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ int	get_width(char *file)
 void	malloc_matrix(t_map *map)
 {
 	int	i;
-
+	
 	i = 0;
-	map->matrix = (int **)malloc(sizeof(int *) * (map->height));
+	map->matrix = (int **)ft_calloc(map->height, sizeof(int *));
 	while (i < map->height)
-		map->matrix[i++] = (int *)malloc(sizeof(int) * (map->width + 1)); 
+		map->matrix[i++] = (int*)ft_calloc((map->width + 1), sizeof(int)); 
 }
 
 void	fill_matrix(int *z_line, char *line)

@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 17:22:33 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/04 14:09:21 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/04 21:58:16 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,29 @@ void	init_map(t_map *map)
 	map->width = 0;
 	map->height = 0;
 	map->matrix = NULL;
-	map->x = 0;
-	map->y = 0;
 	map->z = 0;
 	map->z2 = 0;
-	map->x_increment = 0;
-	map->y_increment = 0;
+	map->zoom = 15;
+}
+
+void	config_map(t_point *point, float *x2, float *y2, t_mlx *data)
+
+{
+	config_zoom(point, x2, y2, data);
+}
+
+void	config_zoom(t_point *point, float *x2, float *y2, t_mlx *data)
+{
+	point->x *= data->map->zoom;
+	point->y *= data->map->zoom;
+	*x2 *= data->map->zoom;
+	*y2 *= data->map->zoom;
+}
+
+void	zoom(int keycode, t_mlx *data)
+{
+	if (keycode == XK_minus)
+		data->map->zoom -= 1;
+	if (keycode == XK_plus)
+		data->map->zoom += 1;
 }

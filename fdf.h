@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:02:15 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/04 14:07:35 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/04 21:28:41 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,20 @@
 # define WIN_WIDTH 650
 # define WIN_HEIGHT 600
 
+typedef struct	s_point
+{
+	float	x;
+	float	y;
+} t_point;
+
 typedef struct s_map
 {	
 	int	**matrix;
 	int	height;
 	int	width;
-	float	x;
-	float	y;
 	int	z;
 	int	z2;
-	float	x_increment;
-	float	y_increment;
+	int	zoom;
 	
 } t_map;
 
@@ -58,8 +61,11 @@ void	read_file(char *file, t_map *map);
 void	free_map(t_map *map);
 
 // draw map
-void	algorithm_brensenham(float x2, float y2, t_map *map, t_mlx *data);
-void	draw(t_map *map, t_mlx *data);
+void	algorithm_brensenham(t_point point, float x2, float y2, t_mlx *data);
+void	draw(t_mlx *data);
+void	config_map(t_point *point, float *x2, float *y2, t_mlx *data);
+void	config_zoom(t_point *point, float *x2, float *y2, t_mlx *data);
+void	zoom(int keycode, t_mlx *data);
 
 // init variable
 void	init_map(t_map *map);

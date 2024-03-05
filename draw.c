@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 11:03:25 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/05 16:39:30 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/05 20:25:22 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,10 @@ void	isometric(float *x, float*y, int z)
 
 void	algorithm_brensenham(t_point point, float x2, float y2, t_mlx *data)
 {
-	int	steps;
+	int		steps;
 	float	x_increment;
 	float	y_increment;
-	//t_map	map;
-	
+
 	data->map->z = data->map->matrix[(int)point.y][(int)point.x];
 	data->map->z2 = data->map->matrix[(int)y2][(int)x2];
 	data->map->color = paint(&data->map->z);
@@ -36,7 +35,8 @@ void	algorithm_brensenham(t_point point, float x2, float y2, t_mlx *data)
 	y_increment /= steps;
 	while ((int)(point.x - x2) || (int)(point.y - y2))
 	{
-		mlx_pixel_put(data->mlx_ptr, data->win_ptr, point.x, point.y,data->map->color);
+		mlx_pixel_put(data->mlx_ptr,
+			data->win_ptr, point.x, point.y, data->map->color);
 		point.x += x_increment;
 		point.y += y_increment;
 	}
@@ -44,10 +44,10 @@ void	algorithm_brensenham(t_point point, float x2, float y2, t_mlx *data)
 
 void	draw(t_mlx *data)
 {
-	t_point point;
+	t_point	point;
 
 	point.y = 0;
-	while (point.y < data->map->height)	
+	while (point.y < data->map->height)
 	{
 		point.x = 0;
 		while (point.x < data->map->width)
@@ -61,9 +61,3 @@ void	draw(t_mlx *data)
 		point.y++;
 	}
 }
-
-
-
-
-
-

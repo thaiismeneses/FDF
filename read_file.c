@@ -6,12 +6,12 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 16:00:10 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/05 15:55:34 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/05 20:31:39 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "fdf.h"
-# include <stdio.h>
+#include "fdf.h"
+#include <stdio.h>
 
 int	get_height(char *file)
 {
@@ -62,11 +62,11 @@ int	get_width(char *file)
 void	malloc_matrix(t_map *map)
 {
 	int	i;
-	
+
 	i = 0;
 	map->matrix = (int **)ft_calloc(map->height, sizeof(int *));
 	while (i < map->height)
-		map->matrix[i++] = (int*)ft_calloc((map->width + 1), sizeof(int)); 
+		map->matrix[i++] = (int *)ft_calloc((map->width + 1), sizeof(int));
 }
 
 void	fill_matrix(int *z_line, char *line)
@@ -90,7 +90,7 @@ void	read_file(char *file, t_map *map)
 	int		fd;
 	int		i;
 	char	*line;
-	
+
 	fd = open(file, O_RDONLY, 0);
 	line = get_next_line(fd);
 	map->height = get_height(file);

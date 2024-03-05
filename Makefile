@@ -6,7 +6,7 @@
 #    By: thfranco <thfranco@student.42.rio>        +#+  +:+       +#+          #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/16 18:02:59 by thfranco         #+#    #+#               #
-#    Updated: 2024/03/05 15:40:14 by thfranco         ###   ########.fr        #
+#    Updated: 2024/03/05 20:28:48 by thfranco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS        :=			main.c\
 				read_file.c\
 				draw.c\
 				config.c\
+				key_settings.c\
 			
                           
 OBJS        := $(SRCS:.c=.o)

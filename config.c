@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 17:22:33 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/04 21:58:16 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/05 12:17:39 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	init_map(t_map *map)
 }
 
 void	config_map(t_point *point, float *x2, float *y2, t_mlx *data)
-
 {
 	config_zoom(point, x2, y2, data);
 }
@@ -42,4 +41,11 @@ void	zoom(int keycode, t_mlx *data)
 		data->map->zoom -= 1;
 	if (keycode == XK_plus)
 		data->map->zoom += 1;
+}
+
+int	paint(int *z)
+{
+	if (*z > 0)
+		return (0xe80c0c);
+	return (0xffffff);
 }

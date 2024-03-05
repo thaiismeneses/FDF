@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:02:15 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/04 21:28:41 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/05 12:04:58 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_map
 	int	z;
 	int	z2;
 	int	zoom;
+	int	color;
 	
 } t_map;
 
@@ -66,7 +67,7 @@ void	draw(t_mlx *data);
 void	config_map(t_point *point, float *x2, float *y2, t_mlx *data);
 void	config_zoom(t_point *point, float *x2, float *y2, t_mlx *data);
 void	zoom(int keycode, t_mlx *data);
-
+int	paint(int *z);
 // init variable
 void	init_map(t_map *map);
 

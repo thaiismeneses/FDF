@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:41:01 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/05 20:26:42 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/06 16:15:06 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	zoom(int keycode, t_mlx *data)
 {
-	if (keycode == XK_i)
+	if (keycode == XK_KP_Subtract)
 		data->map->zoom -= 1;
-	if (keycode == XK_o)
+	if (keycode == XK_KP_Add)
 		data->map->zoom += 1;
 	mlx_clear_window(data->mlx_ptr, data->win_ptr);
 	draw(data);

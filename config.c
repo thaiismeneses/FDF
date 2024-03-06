@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 17:22:33 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/05 20:32:15 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/06 16:13:02 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	init_map(t_map *map)
 	map->zoom = 15;
 	map->color = 0xffffff;
 	map->matrix = NULL;
-	map->move_x = 0; //(WIDTH - map->width) / 2;
-	map->move_y = 0; //HEIGHT / 5;
+	map->move_x = (WIN_WIDTH- map->width) / 2;
+	map->move_y = WIN_HEIGHT / 5;
 }
 
 void	config_map(t_point *point, float *x2, float *y2, t_mlx *data)

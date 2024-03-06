@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:02:15 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/05 18:19:58 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/06 16:10:14 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 # include <X11/keysym.h>
 # include <math.h>
 
-# define WIN_WIDTH 650
-# define WIN_HEIGHT 600
+# define WIN_WIDTH  1920
+# define WIN_HEIGHT 1080
 
 typedef struct	s_point
 {

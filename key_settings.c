@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:41:01 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/06 16:15:06 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/07 21:59:16 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@ void	zoom(int keycode, t_mlx *data)
 		data->map->zoom -= 1;
 	if (keycode == XK_KP_Add)
 		data->map->zoom += 1;
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
-	draw(data);
 }
 
 void	arrows(int keycode, t_mlx *data)
@@ -32,6 +30,35 @@ void	arrows(int keycode, t_mlx *data)
 		data->map->move_x -= 10;
 	if (keycode == XK_Right)
 		data->map->move_x += 10;
-	mlx_clear_window(data->mlx_ptr, data->win_ptr);
-	draw(data);
+}
+
+void	rotate(int keycode, t_mlx *data)
+{
+	if (keycode == XK_w)
+		data->map->angle_y += 0.50;
+	if (keycode == XK_s)
+		data->map->angle_y -= 0.50;
+	if (keycode == XK_a)
+		data->map->angle_x -= 0.50;
+	if (keycode == XK_d)
+		data->map->angle_x += 0.50;
+}
+
+void	views(int keycode, t_mlx *data)
+{
+	if (keycode == XK_i)
+	{
+		data->map->angle_x = 0.80;
+		data->map->angle_y = 0.80;
+	}
+	if (keycode == XK_p)
+	{
+		data->map->angle_x = 0.52;
+		data->map->angle_y = 0.00;
+	}
+	if (keycode == XK_f)
+	{
+		data->map->angle_x -= 3.14;
+		data->map->angle_y -= 3.14;
+	}
 }

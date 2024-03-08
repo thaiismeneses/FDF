@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 17:22:33 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/06 16:13:02 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/07 21:40:28 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,15 @@ void	init_map(t_map *map)
 	map->matrix = NULL;
 	map->move_x = (WIN_WIDTH- map->width) / 2;
 	map->move_y = WIN_HEIGHT / 5;
+	map->angle_x = 1.00;
+	map->angle_y = 1.00;
 }
 
 void	config_map(t_point *point, float *x2, float *y2, t_mlx *data)
 {
 	config_zoom(point, x2, y2, data);
-	isometric(&point->x, &point->y, data->map->z);
-	isometric(x2, y2, data->map->z2);
+	isometric(&point->x, &point->y, data->map->z, data);
+	isometric(x2, y2, data->map->z2, data);
 	config_arrows(point, x2, y2, data);
 }
 

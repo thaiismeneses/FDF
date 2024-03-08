@@ -6,16 +6,16 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/04 11:03:25 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/06 16:25:48 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:08:16 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	isometric(float *x, float *y, int z)
+void	isometric(float *x, float *y, int z, t_mlx *data)
 {
-	*x = (*x - *y) * cos(0.8);
-	*y = (*x + *y) * sin(0.8) - z;
+	*x = (*x - *y) * cos(data->map->angle_x);
+	*y = (*x + *y) * sin(data->map->angle_y) - z;
 }
 
 void	algorithm_brensenham(t_point point, float x2, float y2, t_mlx *data)

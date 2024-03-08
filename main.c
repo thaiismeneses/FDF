@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:02:47 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/06 15:51:10 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/07 20:39:13 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,12 @@ int	key_board(int keycode, t_mlx *data)
 //	printf("The %d key has been pressed\n\n", keycode);
 	zoom(keycode, data);
 	arrows(keycode, data);
+	rotate(keycode, data);
+	views(keycode, data);
 	if (keycode == XK_Escape)
 		kill_fdf(data);
+	mlx_clear_window(data->mlx_ptr, data->win_ptr);
+	draw(data);
 	return (0);
 }
 

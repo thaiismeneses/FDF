@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fdf.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:02:47 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/07 20:39:13 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/08 18:49:12 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <stdio.h>
 
 void	free_map(t_map *map)
 {
@@ -48,7 +47,6 @@ int	kill_fdf(t_mlx *data)
 
 int	key_board(int keycode, t_mlx *data)
 {
-//	printf("The %d key has been pressed\n\n", keycode);
 	zoom(keycode, data);
 	arrows(keycode, data);
 	rotate(keycode, data);

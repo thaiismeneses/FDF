@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 16:00:10 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/06 15:39:05 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/08 15:16:52 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ void	read_file(char *file, t_map *map)
 	char	*line;
 
 	fd = open(file, O_RDONLY, 0);
+	if (fd < 0)
+		exit(-1);
 	line = get_next_line(fd);
 	map->height = get_height(file);
 	map->width = get_width(file);

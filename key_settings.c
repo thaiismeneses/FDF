@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:41:01 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/07 21:59:16 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/08 15:18:30 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ void	arrows(int keycode, t_mlx *data)
 void	rotate(int keycode, t_mlx *data)
 {
 	if (keycode == XK_w)
-		data->map->angle_y += 0.50;
+		data->map->angle_y += 0.25;
 	if (keycode == XK_s)
-		data->map->angle_y -= 0.50;
+		data->map->angle_y -= 0.25;
 	if (keycode == XK_a)
-		data->map->angle_x -= 0.50;
+		data->map->angle_x -= 0.25;
 	if (keycode == XK_d)
-		data->map->angle_x += 0.50;
+		data->map->angle_x += 0.25;
 }
 
 void	views(int keycode, t_mlx *data)
@@ -56,9 +56,9 @@ void	views(int keycode, t_mlx *data)
 		data->map->angle_x = 0.52;
 		data->map->angle_y = 0.00;
 	}
-	if (keycode == XK_f)
+	if (keycode == XK_b)
 	{
-		data->map->angle_x -= 3.14;
-		data->map->angle_y -= 3.14;
+		data->map->angle_x = 0.73;
+		data->map->angle_y = 0.122173;
 	}
 }

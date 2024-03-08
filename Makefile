@@ -6,13 +6,13 @@
 #    By: thfranco <thfranco@student.42.rio>        +#+  +:+       +#+          #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/16 18:02:59 by thfranco         #+#    #+#               #
-#    Updated: 2024/03/05 20:28:48 by thfranco         ###   ########.fr        #
+#    Updated: 2024/03/08 15:24:23 by thfranco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        := fdf
+NAME        	:= fdf
 
-CC			:= gcc
+CC		:= gcc
 
 FLAGS		:= -Wall -Wextra -Werror -g 
 #-fsanitize=address
@@ -21,11 +21,11 @@ INCLUDE		:= -I libft/ minilibx-linux/fdf.h
 
 LIBS		:= libft/libft.a minilibx-linux/libmlx.a -L/usr/X11/lib  -lX11 -lXext -lbsd -lm
 
-SRCS        :=			main.c\
-				read_file.c\
-				draw.c\
-				config.c\
-				key_settings.c\
+SRCS        	:=	fdf.c\
+			read_file.c\
+			draw.c\
+			config.c\
+			key_settings.c\
 			
                           
 OBJS        := $(SRCS:.c=.o)
@@ -35,8 +35,6 @@ RM		    := rm -rf
 AR			:= ar rcs
 
 LEAK = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s
-
-
 
 all: $(NAME)
 
@@ -64,5 +62,8 @@ re:			fclean all
 
 leak:
 				$(LEAK) ./fdf 42.fdf
+
+norma:
+				norminette $(SRCS) fdf.h ./libft
 
 .PHONY:				all clean fclean re leak

@@ -6,12 +6,13 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 17:22:33 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/07 21:40:28 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/08 19:24:14 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h" 
 #include <stdio.h>
+
 void	init_map(t_map *map)
 {
 	map->width = 0;
@@ -21,10 +22,10 @@ void	init_map(t_map *map)
 	map->zoom = 15;
 	map->color = 0xffffff;
 	map->matrix = NULL;
-	map->move_x = (WIN_WIDTH- map->width) / 2;
+	map->move_x = (WIN_WIDTH - map->width) / 2;
 	map->move_y = WIN_HEIGHT / 5;
-	map->angle_x = 1.00;
-	map->angle_y = 1.00;
+	map->angle_x = 0.816 ;
+	map->angle_y = 0.816;
 }
 
 void	config_map(t_point *point, float *x2, float *y2, t_mlx *data)

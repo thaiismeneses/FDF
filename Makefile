@@ -6,7 +6,7 @@
 #    By: thfranco <thfranco@student.42.rio>        +#+  +:+       +#+          #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/16 18:02:59 by thfranco         #+#    #+#               #
-#    Updated: 2024/03/08 15:24:23 by thfranco         ###   ########.fr        #
+#    Updated: 2024/03/09 17:28:53 by thfranco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,13 +15,13 @@ NAME        	:= fdf
 CC		:= gcc
 
 FLAGS		:= -Wall -Wextra -Werror -g 
-#-fsanitize=address
 
 INCLUDE		:= -I libft/ minilibx-linux/fdf.h
 
 LIBS		:= libft/libft.a minilibx-linux/libmlx.a -L/usr/X11/lib  -lX11 -lXext -lbsd -lm
 
 SRCS        	:=	fdf.c\
+			check_file.c\
 			read_file.c\
 			draw.c\
 			config.c\
@@ -38,24 +38,29 @@ LEAK = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s
 
 all: $(NAME)
 
+minilibx:
+	wget https://cdn.intra.42.fr/document/document/22065/minilibx-linux.tgz
+	tar -xvzf minilibx-linux.tgz
+	rm minilibx-linux.tgz
+	
 $(NAME): $(OBJS)
 					@echo "Compilation of $(NAME) ..."
-					@make -C libft/
-					@make -C minilibx-linux/
-					$(CC) $(FLAGS) $(SRCS) $(LIBS) -o $(NAME)
+					@make -s -C libft/
+					@make -s -C minilibx-linux/
+					@$(CC) $(FLAGS) $(SRCS) $(LIBS) -o $(NAME)
 					@echo "$(NAME) created✔️"
 
 clean:
-					@ echo "Deleting $(NAME) objs ✔️"
-					@make clean -C libft/
+					@echo "Deleting $(NAME) objs ✔️"
+					@make -s clean -C libft/
 					@$(RM) $(OBJS)
 
 fclean: clean
-					@ echo "Deleting $(NAME) ✔️"
-					@ make fclean -C libft/
-					@ make clean -C minilibx-linux/
-					@ $(RM) $(NAME)			
-					@ $(RM) $(LIBFT)
+					@echo "Deleting $(NAME) ✔️"
+					@make -s fclean -C libft/
+					@make -s clean -C minilibx-linux/
+					@$(RM) $(NAME)			
+					@$(RM) $(LIBFT)
 
 
 re:			fclean all 

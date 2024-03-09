@@ -6,12 +6,11 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 17:22:33 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/08 19:24:14 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/09 14:03:05 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h" 
-#include <stdio.h>
 
 void	init_map(t_map *map)
 {

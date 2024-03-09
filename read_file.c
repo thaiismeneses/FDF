@@ -6,12 +6,11 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 16:00:10 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/08 15:16:52 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/09 17:52:11 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-#include <stdio.h>
 
 int	get_height(char *file)
 {

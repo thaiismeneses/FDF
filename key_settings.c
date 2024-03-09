@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/05 19:41:01 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/08 15:18:30 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/09 13:29:54 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,13 @@ void	views(int keycode, t_mlx *data)
 {
 	if (keycode == XK_i)
 	{
-		data->map->angle_x = 0.80;
-		data->map->angle_y = 0.80;
+		data->map->angle_x = 0.52;
+		data->map->angle_y = 0.52;
 	}
 	if (keycode == XK_p)
 	{
-		data->map->angle_x = 0.52;
-		data->map->angle_y = 0.00;
+		data->map->angle_x = 0.80;
+		data->map->angle_y = 0.80;
 	}
 	if (keycode == XK_b)
 	{

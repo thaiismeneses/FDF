@@ -6,7 +6,7 @@
 /*   By: thfranco <thfranco@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/02 15:02:47 by thfranco          #+#    #+#             */
-/*   Updated: 2024/03/08 18:49:12 by thfranco         ###   ########.fr       */
+/*   Updated: 2024/03/09 17:54:59 by thfranco         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,14 @@ int	main(int argc, char **argv)
 {
 	t_mlx	data;
 	t_map	map;
+	int		fd;
 
 	if (argc != 2)
 		return (-1);
+	check_file(argv[1]);
+	fd = open(argv[1], O_RDONLY, 0);
+	if (fd < 0)
+		exit(-1);
 	data.map = &map;
 	init_mlx(&data);
 	init_map(&map);

@@ -6,13 +6,13 @@
 #    By: thfranco <thfranco@student.42.rio>        +#+  +:+       +#+          #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/16 18:02:59 by thfranco         #+#    #+#               #
-#    Updated: 2024/03/09 17:28:53 by thfranco         ###   ########.fr        #
+#    Updated: 2024/03/11 11:47:34 by thfranco         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME        	:= fdf
 
-CC		:= gcc
+CC		:= cc
 
 FLAGS		:= -Wall -Wextra -Werror -g 
 
@@ -39,7 +39,7 @@ LEAK = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s
 all: $(NAME)
 
 minilibx:
-	wget https://cdn.intra.42.fr/document/document/22065/minilibx-linux.tgz
+	wget https://cdn.intra.42.fr/document/document/22074/minilibx-linux.tgz
 	tar -xvzf minilibx-linux.tgz
 	rm minilibx-linux.tgz
 	
